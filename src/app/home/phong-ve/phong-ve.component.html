@@ -1,0 +1,17 @@
+<h1 style="color: red">Phòng vé</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <ng-container *ngFor="let item of danhSachGhe, let stt = index">
+        <app-ghe [sit]="item" (eventBook)="datGhe($event)"></app-ghe>
+        <br *ngIf="(stt + 1) % 4 === 0">
+      </ng-container>
+    </div>
+    <div class="col-sm-6">
+      <h2>Danh Sach Ghe Da Dat</h2>
+      <p *ngFor="let item of danhSachGheDangChon, let index = index">Ghe: {{item.TenGhe}} - {{item.GiaVe}} $
+        <button (click)="huyGhe(index)"><span style="color: red" >[Huy]</span></button>
+      </p>
+    </div>
+  </div>
+</div>
